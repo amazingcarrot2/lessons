@@ -1,0 +1,25 @@
+import re
+
+text = "Hi, I am Shirley Hilton. I am his wife."
+m = re.findall('[Hh]i', text)  # [] 中的任意一个字符与i结合
+m1 = re.findall(r'hi', text)
+print(m)
+print(m1)
+
+m2 = re.findall('i.', text)  # .表示除换行符外任意字符包括符号，以i开头的任意字符
+print(m2)
+
+m3 = re.findall('.', text)  # .表示除换行符外任意字符包括符号,此string中的所有字符，
+# \S表示不是空白符的任意字符
+print(m3)
+
+m4 = re.findall('I.*e', text)  # I 开头 e结尾的最长string
+print(m4)
+
+m5 = re.findall('I.*?e', text)  # I 开头 e结尾的所有string
+print(m5)
+
+# 从下面一段文本中，匹配出所有s开头，e结尾的单词。
+test = 'site sea sue sweet see case sse ssee loses'
+t = re.findall(r'\bs\S*e\b', test)
+print(t)
