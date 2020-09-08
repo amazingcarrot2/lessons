@@ -26,10 +26,19 @@ class Country:
             pass
 
     def total_metal(self):
-        return sum(self.gold + self.silver + self.bronze)
+        return self.gold + self.silver + self.bronze
 
     def __str__(self):
         return '%s: 金牌 %d, 银牌 %d, 铜牌 %d, 总奖牌数 %d' % (
             self.country, self.gold, self.silver, self.bronze,
             self.total_metal()
         )
+
+
+china = Country('CN', 100, 100, 100)
+united_states = Country('US', 10, 20, 30)
+united_kindom = Country('UK', 20, 30, 40)
+rank = [china, united_kindom, united_states]
+rank.sort(key=lambda x: x.gold + x.silver + x.bronze, reverse=True)
+for country in rank:
+    print(country)
